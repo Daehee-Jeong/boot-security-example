@@ -1,8 +1,7 @@
 package com.daehee.security.config;
 
-import com.ildong.medinfo.user.MyAuthentication;
-import com.ildong.medinfo.user.User;
-import com.ildong.medinfo.user.UserService;
+import com.daehee.security.user.application.UserService;
+import com.daehee.security.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,7 +30,7 @@ public class AuthProvider implements AuthenticationProvider {
         String id = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        User user = userService.selectUser(Long.valueOf(id));
+        User user = userService.findUserByIdAndPassword(new);
 
         if (null == user) {
             return null;

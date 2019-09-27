@@ -27,6 +27,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthSuccessHandler authSuccessHandler;
 
+
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 허용되어야 할 경로들
